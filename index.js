@@ -1,3 +1,5 @@
+"use strict";
+
 // A list of provinces
 const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State'];
 
@@ -17,13 +19,13 @@ const products = [
 // #### Exercises
 
 // 1. **ForEach Basics**
-console.log(`\nLog Each Name\n-----------------------------------------------------`);
+console.log(`\nLog Each Name\n-----------------------------------------------------\n`);
 names.forEach(name => console.log(name)); // Log Each Name 
 
-console.log(`\nLog Each Province\n-----------------------------------------------------`);
+console.log(`\nLog Each Province\n-----------------------------------------------------\n`);
 provinces.forEach(province => console.log(province)); // Log Each Province
 
-console.log(`\nLog Each Name to Province\n-----------------------------------------------------`);
+console.log(`\nLog Each Name to Province\n-----------------------------------------------------\n`);
 names.forEach((name, i) => console.log(`${name} (${provinces[i]})`)); // Log each name with a matching province
 
 // 2. **Uppercase Transformation**
@@ -31,7 +33,7 @@ const provincesUpperCase = provinces.map(province => province.toUpperCase());
 console.log(`\nLog Each Province to Upper Case\n-----------------------------------------------------`, provincesUpperCase);
 
 // 3. **Name Lengths**
-console.log(`\nLog Name Lengths\n-----------------------------------------------------`, names.map(name => name.length));
+console.log(`\nLog Name Lengths\n-----------------------------------------------------\n`, names.map(name => name.length));
 
 // 4. **Sorting**
 const provincesSort = [...provinces].sort();
