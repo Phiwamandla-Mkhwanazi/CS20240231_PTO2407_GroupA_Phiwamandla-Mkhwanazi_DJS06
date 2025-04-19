@@ -1,13 +1,14 @@
 "use strict";
 
-import {products} from './data/products.js';
-
 import {provincesArray, provincesUpperCase, provinceFilterCape} from './utils/provincesUtils.js';
 import {namesArray} from './utils/namesUtils.js';
-//import {} from './utils/productsUtils.js'
+import {productsArrayNames, productsShortNames, productsTotalPrice, 
+  productsHighestLowest, productsConcatenateNames, productsNameCost} from './utils/productsUtils.js'
 
 
-/*------------------------------------------------Exercises-----------------------------------------------------------------------------*/
+/** 🔭 Basic Exercises 
+ *  📜 The custom logic is in 'utils/provincesUtils.js' file and 'utils/namesUtils'.
+ */
 
 // 1. **ForEach Basics**: Use `forEach` to log each name and each province to the console. Then, log each name with a matching province in the format "Name (Province)".
 
@@ -34,48 +35,36 @@ console.log(`\nLog Count of Provinces without 'Cape'\n--------------------------
    provinceFilterCape);
 
 
-/*----------------------------------------Advanced Exercises (Single `console.log` Execution)-----------------------------------------------------------------------------*/
+/** 🔭 Advanced Exercises (Single `console.log` Execution)
+ *  📜 The custom logic is in 'utils/productsUtils.js' file.
+ */
 
 //1. **Log Products**: Iterate over the products array, logging each product name.
 console.log(`\nLog Each Product Name\n-----------------------------------------------------\n`, 
-  products.map(product => product.product));
+  productsArrayNames
+);
 
 //2. **Filter by Name Length**: Filter out products with names longer than 5 characters.
 console.log(`\nLog Products with Name Length Less Than or Equal to 5\n-----------------------------------------------------\n`, 
-    products.filter(product => product.product.length <= 5));
+  productsShortNames
+);
 
 //3. **Price Manipulation**: Filter out products without prices, convert string prices to numbers, and calculate the total price using `reduce`.
 console.log(`\nTotal Price of Products\n-----------------------------------------------------\n`, 
-    products
-      .filter(p => p.price && !isNaN(p.price))              // Remove empty/invalid prices
-      .map(p => Number(p.price))                            // Convert to numbers
-      .reduce((total, price) => total + price, 0)           // Calculate total price
+  productsTotalPrice
 );
 
 //4. **Concatenate Product Names**: Use `reduce` to concatenate all product names into a single string.
 console.log(`\nLog Concatenated Product Names\n-----------------------------------------------------\n`, 
-    products.reduce((acc, p) => acc + p.product, ''));
+  productsConcatenateNames
+);
 
 //5. **Find Extremes in Prices**: Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
-console.log(
-  `\nFind Highest and Lowest Priced Products\n-----------------------------------------------------\n`,
-  (() => {
-    const validPrices = products
-    .filter(p => typeof p.price === 'number' || (typeof p.price === 'string' && p.price.trim() !== '' && !isNaN(p.price)))
-    .map(p => ({ product: p.product, price: Number(p.price) }));
-
-    const highest = validPrices.reduce((a, b) => (a.price > b.price ? a : b));
-    const lowest = validPrices.reduce((a, b) => (a.price < b.price ? a : b));
-
-    return `Highest: ${highest.product}. Lowest: ${lowest.product}.`;
-  })()
+console.log(`\nFind Highest and Lowest Priced Products\n-----------------------------------------------------\n`,
+  productsHighestLowest()
 );
 
 //6. **Object Transformation**: Using `Object.entries` and `reduce`, recreate the products object with keys 'name' and 'cost', maintaining their original values.
 console.log(`\nLog Object Transformation\n-----------------------------------------------------\n`, 
-  // Destructuring: [_, { product, price }] -    
-  Object.entries(products).reduce((acc, [_, { product, price }]) => {
-      acc.push({ name: product, cost: price });
-      return acc;
-    }, [])
+  productsNameCost
 );
