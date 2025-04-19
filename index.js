@@ -1,45 +1,37 @@
 "use strict";
-import {provinces} from './data/provinces.js';
-import {names} from './data/names.js';
+
 import {products} from './data/products.js';
+
+import {provincesArray, provincesUpperCase, provinceFilterCape} from './utils/provincesUtils.js';
+import {namesArray} from './utils/namesUtils.js';
+//import {} from './utils/productsUtils.js'
+
 
 /*------------------------------------------------Exercises-----------------------------------------------------------------------------*/
 
 // 1. **ForEach Basics**: Use `forEach` to log each name and each province to the console. Then, log each name with a matching province in the format "Name (Province)".
 
 // -> Log Each Name
+
 console.log(`\nLog Each Name\n-----------------------------------------------------\n`);
-names.forEach(name => console.log(name));  
+namesArray.forEach(name => console.log(name))
 
-//-> Log Each Province
-console.log(`\nLog Each Province\n-----------------------------------------------------\n`);
-provinces.forEach(province => console.log(province)); 
+console.log(`\nLog Each Province\n-----------------------------------------------------\n`)
+provincesArray.forEach(province => console.log(province))
 
-//-> Log each name with a matching province
-console.log(`\nLog Each Name to Province\n-----------------------------------------------------\n`);
-names.forEach((name, i) => console.log(`${name} (${provinces[i]})`)); 
+
+console.log(`\nLog Each Name to Province\n-----------------------------------------------------\n`)
+namesArray.forEach((name, i) =>  console.log(`${name} (${provincesArray[i]})`)); 
+
 
 // 2. **Uppercase Transformation**: Use `map` to create a new array of province names in all uppercase. Log the new array to the console
-const provincesUpperCase = provinces.map(province => province.toUpperCase());
-console.log(`\nLog Each Province to Upper Case\n-----------------------------------------------------\n`, provincesUpperCase);
+console.log(`\nLog Each Province to Upper Case\n-----------------------------------------------------\n`,
+   provincesUpperCase);
 
-// 3. **Name Lengths**: Create a new array using `map` that contains the length of each name.
-const nameLengths = names.map(name => name.length);
-
-// 4. **Sorting**: Use `sort` to alphabetically sort the provinces. 
-const provincesSort = [...provinces].sort(); // Create a sorted copy of the provinces array without mutating the original
 
 // 5. **Filtering Cape**: Use `filter` to remove provinces containing "Cape". Log the count of remaining provinces.
-const provinceFilter = provinces.filter(province => !province.includes("Cape")).length;
-console.log(`\nLog Count of Provinces without 'Cape'\n-----------------------------------------------------\nRemaining Count: `, provinceFilter);
-
-// 6. **Finding 'S'**: Create a boolean array using `map` and `some` to determine if a name contains the letter 'S'.
-const findingS = names.map(name =>
-  name.toLowerCase().split('').some(char => char === 's')
-);
-
-// 7. **Creating Object Mapping**: Use `reduce` to transform the names array into an object mapping names to their respective provinces.
-const nameProvinceMap = names.reduce((acc, name, i) => { acc[name] = provinces[i]; return acc; }, {});
+console.log(`\nLog Count of Provinces without 'Cape'\n-----------------------------------------------------\nRemaining Count: `,
+   provinceFilterCape);
 
 
 /*----------------------------------------Advanced Exercises (Single `console.log` Execution)-----------------------------------------------------------------------------*/
