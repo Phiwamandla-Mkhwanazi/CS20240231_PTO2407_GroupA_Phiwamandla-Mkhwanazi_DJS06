@@ -1,7 +1,7 @@
 "use strict";
-
-
-
+import {provinces} from './data/provinces.js';
+import {names} from './data/names.js';
+import {products} from './data/products.js';
 
 // #### Exercises
 
@@ -17,7 +17,7 @@ names.forEach((name, i) => console.log(`${name} (${provinces[i]})`)); // Log eac
 
 // 2. **Uppercase Transformation**
 const provincesUpperCase = provinces.map(province => province.toUpperCase());
-console.log(`\nLog Each Province to Upper Case\n-----------------------------------------------------`, provincesUpperCase);
+console.log(`\nLog Each Province to Upper Case\n-----------------------------------------------------\n`, provincesUpperCase);
 
 // 3. **Name Lengths**
 console.log(`\nLog Name Lengths\n-----------------------------------------------------\n`, names.map(name => name.length));

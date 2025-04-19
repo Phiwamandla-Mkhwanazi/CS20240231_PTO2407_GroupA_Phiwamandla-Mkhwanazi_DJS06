@@ -1,5 +1,5 @@
 // A list of products with prices:
-const products = [
+export const products = [
     { product: 'banana', price: "2" },
     { product: 'mango', price: 6 },
     { product: 'potato', price: ' ' },
