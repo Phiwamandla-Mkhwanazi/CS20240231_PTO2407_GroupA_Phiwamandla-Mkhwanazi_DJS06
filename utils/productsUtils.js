@@ -1,4 +1,5 @@
 /** 
+ * All Advanced Exercises Logic 
  * Import the seed data for products
  **/ 
 import {products} from '../data/products.js';

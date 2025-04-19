@@ -1,4 +1,7 @@
-//Import seed data from utils/provinces.js file
+/**
+ *Basic Exercises includes 1,2,4 and 5 logic
+* Import seed data from utils/provinces.js file
+*/
 import { provinces } from '../data/provinces.js';
 
 // 1. **ForEach Basics**: Use `forEach` to log each name and each province to the console. Then, log each name with a matching province in the format "Name (Province)".

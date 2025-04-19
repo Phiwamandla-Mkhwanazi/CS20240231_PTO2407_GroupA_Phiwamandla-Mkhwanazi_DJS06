@@ -1,4 +1,7 @@
-// Import seed data from the names and provinces files which are found inside the data folder
+/** 
+ *  Basic Exercises includes 1,3,6 and 7 logic
+ *  Import seed data from the names and provinces files which are found inside the data folder within the app
+*/
 import {names} from '../data/names.js';
 import { provinces } from '../data/provinces.js';
 
